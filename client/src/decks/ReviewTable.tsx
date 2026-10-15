@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { toHiragana } from "wanakana";
 import { conjugateCell } from "@shared/conjugation/answerKey";
 import { FORMS_BY_ID } from "@shared/conjugation/forms";
-import { safeRubyHtml } from "@shared/ids";
+import { rubyHtml } from "@shared/ids";
 import type { ReviewResult, ReviewRow, ReviewType } from "@shared/importTypes";
 import { realign, rowIncluded, rowProblem, rowToWord } from "@shared/reviewRows";
 import { WORD_EXCEPTIONS, isVerbType, type Word, type WordException } from "@shared/types";
@@ -258,7 +258,7 @@ function Preview({ row, problem }: { row: ReviewRow; problem: string | null }) {
         }
         return (
           <div key={id}>
-            <ruby dangerouslySetInnerHTML={{ __html: safeRubyHtml(html) }} />
+            <span dangerouslySetInnerHTML={{ __html: rubyHtml(html) }} />
           </div>
         );
       })}

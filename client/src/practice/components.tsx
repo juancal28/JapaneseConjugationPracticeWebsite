@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { safeRubyHtml } from "@shared/ids";
+import { rubyHtml } from "@shared/ids";
 
 /** Small presentational components ported 1:1 from the original quiz/*.js files. */
 
@@ -53,7 +53,7 @@ export function Settings({ legend = "Settings", id = "settings", children }: { l
 export function Question({ furi, english, children }: { furi: boolean; english?: string; children: string }) {
   return (
     <div className={"question" + (furi ? " furi" : "")}>
-      <ruby dangerouslySetInnerHTML={{ __html: safeRubyHtml(children) }}></ruby>
+      <span className="question-word" dangerouslySetInnerHTML={{ __html: rubyHtml(children) }}></span>
       {english && <div className="question-eng">{english}</div>}
     </div>
   );
@@ -70,10 +70,11 @@ export function CorrectScore({ correct, incorrect }: { correct: number; incorrec
   );
 }
 
-export function Feedback({ answer, status }: { answer: string; status: string }) {
+/** Shows every accepted answer, in kanji with furigana when the word has kanji. */
+export function Feedback({ answers, status }: { answers: string[]; status: string }) {
   return (
     <div className={"feedback status-" + (status || "none")}>
-      <h2 id="correct-answer" dangerouslySetInnerHTML={{ __html: "Last Answer: " + safeRubyHtml(answer) }}></h2>
+      <h2 id="correct-answer" dangerouslySetInnerHTML={{ __html: "Last Answer: " + answers.map(rubyHtml).join(" or ") }}></h2>
       <h2 id="meaning"></h2>
     </div>
   );

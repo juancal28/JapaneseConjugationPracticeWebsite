@@ -18,7 +18,7 @@ interface Props {
 interface State {
   word: Word | null;
   question: string;
-  lastAnswer: string;
+  lastAnswers: string[];
   form: string;
   status: string;
   wait: boolean;
@@ -84,7 +84,7 @@ export default class Conjugation extends React.Component<Props, State> {
     this.state = {
       word: null,
       question: "",
-      lastAnswer: "",
+      lastAnswers: [],
       form: "",
       status: "",
       wait: false,
@@ -114,7 +114,7 @@ export default class Conjugation extends React.Component<Props, State> {
     const word = this.word!;
     let question = word.kana;
     if (this.kanji) {
-      question = word.kanji.replace("<rt>", "<rp>(</rp><rt>").replace("</rt>", "</rt><rp>)</rp>");
+      question = word.kanji;
     }
     if (this.randomQuestion) {
       question = this.randomizer.getQuestion(word, this.kanji, this.opts);
@@ -157,8 +157,8 @@ export default class Conjugation extends React.Component<Props, State> {
       status,
       correct: this.correct,
       incorrect: this.incorrect,
-      // Kanji with furigana on top; each answer gets its own <ruby> so the readings line up.
-      lastAnswer: this.answerKanji.map((a) => `<ruby>${a}</ruby>`).join(" or "),
+      // Kanji with furigana on top (rendered by Feedback).
+      lastAnswers: this.answerKanji,
       wait: true,
     });
   };
@@ -268,7 +268,7 @@ export default class Conjugation extends React.Component<Props, State> {
             <Type label={word ? TYPE_LABELS[word.type] : ""} hide={this.state.type} />
           </div>
           <CorrectScore correct={this.state.correct} incorrect={this.state.incorrect} />
-          <Feedback answer={this.state.lastAnswer} status={this.state.status} />
+          <Feedback answers={this.state.lastAnswers} status={this.state.status} />
           <Settings>
             {hasVerbs && <ToggleList>{this.formToggles(VERB_FORMS, false)}</ToggleList>}
             {hasAdjs && <ToggleList>{this.formToggles(ADJ_FORMS, hasVerbs)}</ToggleList>}
