@@ -26,3 +26,9 @@ body.dark .conj-table th, body.dark .conj-table td { border-color: #3a3f47; }
 body.dark .conj-table thead th { background: #23272e; }
 body.dark .conj-table tbody th { background: #1c1f24; }
 body.dark .conj-table .rule { color: #9aa3ae; }
+
+.reference h3 { font-size: 1.15rem; margin: 28px 0 4px; }
+.reference .reference-note { color: var(--toggleHeading); margin: 0 0 12px; }
+/* The sound-change table reads left to right like the image it came from. */
+.conj-table.sound-changes thead th { text-align: left; }
+.conj-table.sound-changes tbody th { font-weight: 400; }

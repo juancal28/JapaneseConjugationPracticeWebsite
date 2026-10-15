@@ -1,0 +1,31 @@
+{
+  "title": "Te/ta sound changes (godan)",
+  "description": "The final kana decides the change.",
+  "rows": [
+    {
+      "ending": "う, つ, る",
+      "change": "って / った",
+      "examples": [["買う", "買って"], ["待つ", "待って"], ["取る", "取って"]]
+    },
+    {
+      "ending": "む, ぶ, ぬ",
+      "change": "んで / んだ",
+      "examples": [["読む", "読んで"], ["遊ぶ", "遊んで"], ["死ぬ", "死んで"]]
+    },
+    {
+      "ending": "く",
+      "change": "いて / いた",
+      "examples": [["書く", "書いて"]]
+    },
+    {
+      "ending": "ぐ",
+      "change": "いで / いだ",
+      "examples": [["泳ぐ", "泳いで"]]
+    },
+    {
+      "ending": "す",
+      "change": "して / した",
+      "examples": [["話す", "話して"]]
+    }
+  ]
+}

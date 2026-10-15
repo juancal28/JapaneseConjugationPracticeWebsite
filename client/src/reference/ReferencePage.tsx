@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BackButton, DarkModeButton } from "../practice/components";
 import verbData from "./verb-conjugation.json";
 import adjData from "./adjective-conjugation.json";
+import soundChanges from "./te-ta-sound-changes.json";
 import "../styles/reference.css";
 
 interface FormDef {
@@ -84,6 +85,32 @@ function ConjugationTable({ forms, columns }: { forms: FormDef[]; columns: Colum
   );
 }
 
+/** Which godan endings take which て/た change, with examples. */
+function SoundChangeTable() {
+  return (
+    <div className="conj-wrap">
+      <table className="conj-table sound-changes">
+        <thead>
+          <tr>
+            <th scope="col">Ending</th>
+            <th scope="col">Te / Ta</th>
+            <th scope="col">Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          {soundChanges.rows.map((r) => (
+            <tr key={r.ending}>
+              <th scope="row">{r.ending}</th>
+              <td>{r.change}</td>
+              <td>{r.examples.map(([from, to]) => `${from} → ${to}`).join(", ")}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 const VERB_TYPE_LABELS: Record<string, string> = { godan: "Godan", ichidan: "Ichidan" };
 const ADJ_TYPE_LABELS: Record<string, string> = { i: "い", na: "な" };
 
@@ -114,6 +141,9 @@ export default function ReferencePage() {
         <section>
           <h2>Verbs</h2>
           <ConjugationTable forms={verbData.forms} columns={verbColumns} />
+          <h3>{soundChanges.title}</h3>
+          <p className="reference-note">{soundChanges.description}</p>
+          <SoundChangeTable />
         </section>
         <section>
           <h2>Adjectives</h2>
