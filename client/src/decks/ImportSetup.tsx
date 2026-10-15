@@ -1,24 +1,26 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { FieldMapping, ImportPreview, ReviewResult } from "@shared/importTypes";
 import { api } from "../api";
+import DeckTree from "./DeckTree";
+import { buildDeckTree, nodeCards, selectionRoots } from "./deckTreeModel";
 
 /** Step 2: pick which Anki (sub)decks to import and which fields hold the word, reading and meaning. */
 export default function ImportSetup(props: { preview: ImportPreview; onCancel: () => void; onClassified: (r: ReviewResult) => void }) {
   const { preview } = props;
-  const [deckIds, setDeckIds] = useState<string[]>(() => {
-    // Preselect the leaf decks that have cards.
-    const leaves = preview.decks.filter((d) => d.noteCount > 0);
-    return leaves.length === 1 ? [leaves[0].id] : [];
+  const [selected, setSelected] = useState<Set<string>>(() => {
+    // Preselect the only deck with cards, if there's just one.
+    const withCards = preview.decks.filter((d) => d.noteCount > 0);
+    return new Set(withCards.length === 1 ? [withCards[0].id] : []);
   });
+  const deckIds = [...selected];
+  const roots = useMemo(() => buildDeckTree(preview.decks), [preview.decks]);
   const [mappings, setMappings] = useState<Record<string, FieldMapping>>(() =>
     Object.fromEntries(preview.noteTypes.map((nt) => [nt.id, nt.mapping])),
   );
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const selectedNotes = preview.decks.filter((d) => deckIds.includes(d.id)).reduce((n, d) => n + d.noteCount, 0);
-
-  const toggle = (id: string) => setDeckIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+  const selectedNotes = selectionRoots(roots, selected).reduce((n, node) => n + nodeCards(node), 0);
   const setField = (ntId: string, key: keyof FieldMapping, value: string) =>
     setMappings((prev) => ({ ...prev, [ntId]: { ...prev[ntId], [key]: value === "" ? null : Number(value) } }));
 
@@ -40,18 +42,8 @@ export default function ImportSetup(props: { preview: ImportPreview; onCancel: (
 
       <section>
         <h3>1. Which decks?</h3>
-        <p className="dm-muted">Pick the chapter or unit you want to practice. Each subdeck's own cards are counted; subdecks aren't added automatically.</p>
-        <div className="dm-tree">
-          {preview.decks.map((d) => {
-            const depth = d.name.split("::").length - 1;
-            return (
-              <label key={d.id} style={{ paddingLeft: depth * 22 }}>
-                <input type="checkbox" checked={deckIds.includes(d.id)} onChange={() => toggle(d.id)} disabled={d.noteCount === 0} />{" "}
-                {d.name.split("::").pop()} <span className="dm-muted">({d.noteCount} cards)</span>
-              </label>
-            );
-          })}
-        </div>
+        <p className="dm-muted">Pick the chapter or unit you want to practice. Ticking a section takes all of its subdecks.</p>
+        <DeckTree decks={preview.decks} selected={selected} onChange={setSelected} />
       </section>
 
       <section>

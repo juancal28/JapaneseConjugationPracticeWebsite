@@ -42,7 +42,7 @@
 .dm-banner.error { border-left: 4px solid var(--red); }
 .dm-banner.ok { border-left: 4px solid var(--green); }
 
-.dm-tree label { display: block; padding: 3px 0; cursor: pointer; }
+
 .dm-muted { color: var(--toggleHeading); font-size: 13px; }
 .dm-flags { margin: 4px 0 0; padding: 0; list-style: none; font-size: 12px; color: var(--orange); }
 .dm-note { font-size: 12px; color: var(--toggleHeading); margin-top: 4px; }
@@ -57,4 +57,39 @@
   .dm-table.review thead { display: none; }
   .dm-table.review tr { display: block; border-bottom: 1px solid var(--borderInput); padding: 8px 0; }
   .dm-table.review td { display: block; border: none; padding: 4px 0; }
+}
+
+/* Import: Anki-style deck picker */
+.deck-picker { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
+.deck-picker-tools { display: flex; gap: 8px; margin-bottom: 8px; }
+.deck-picker-tools input[type="search"] {
+  flex: 1; font: inherit; font-size: 14px; padding: 6px 10px; border-radius: 8px;
+  background: var(--bgInput); color: var(--textInput); border: 1px solid var(--borderInput);
+}
+.deck-tree, .deck-tree ul { list-style: none; margin: 0; padding: 0; }
+.deck-tree ul { margin-left: 11px; padding-left: 14px; border-left: 1px solid var(--borderInput); }
+.deck-tree li { margin: 0; }
+.deck-row { display: flex; align-items: center; gap: 4px; padding: 3px 6px; border-radius: 6px; }
+.deck-row:hover { background: var(--bgQuestion); }
+.deck-row.is-selected { background: color-mix(in srgb, var(--blue) 12%, transparent); }
+.deck-row label { cursor: pointer; flex: 1; }
+.deck-parent { font-weight: 500; }
+.deck-twisty {
+  width: 22px; flex: none; text-align: center; background: none; border: none; padding: 0;
+  color: var(--toggleHeading); font-size: 14px; cursor: pointer;
+}
+.deck-twisty:disabled { cursor: default; opacity: .5; }
+.deck-picker-selected {
+  position: sticky; top: 12px; padding: 12px 14px; border-radius: 10px;
+  background: var(--bgQuestion); border: 1px solid var(--borderInput); font-size: 14px;
+}
+.deck-picker-selected ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.deck-picker-selected li { display: flex; gap: 6px; align-items: baseline; padding: 4px 0; border-bottom: 1px solid var(--borderInput); }
+.deck-picker-selected li:last-child { border-bottom: none; }
+.deck-path { flex: 1; }
+.deck-remove { background: none; border: none; color: var(--toggleHeading); cursor: pointer; font-size: 13px; padding: 0 2px; }
+.deck-remove:hover { color: var(--red); }
+@media (max-width: 760px) {
+  .deck-picker { grid-template-columns: 1fr; }
+  .deck-picker-selected { position: static; }
 }

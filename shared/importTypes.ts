@@ -7,6 +7,8 @@ export interface AnkiDeckInfo {
   name: string;
   /** Notes whose cards are in this deck itself (not counting subdecks). */
   noteCount: number;
+  /** Notes in this deck or any of its subdecks, each counted once. */
+  totalNoteCount: number;
 }
 
 export interface NoteTypeInfo {

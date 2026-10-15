@@ -1,5 +1,6 @@
 import { cleanExpression, cleanField, cleanReading } from "../anki/extract";
 import type { ParsedCollection } from "../anki/parseApkg";
+import { suggestDeckName } from "../anki/deckNames";
 import { alignRuby, kataToHira } from "../../shared/ruby";
 import { wordId } from "../../shared/ids";
 import type { ClassifyRequest, ReviewResult, ReviewRow } from "../../shared/importTypes";
@@ -110,11 +111,10 @@ export async function classifyImport(col: ParsedCollection, fileName: string, re
     if (problem) row.flags.push(problem);
   }
 
-  const selected = col.decks.filter((d) => wanted.has(d.id)).map((d) => d.name);
-  const ankiDeck = selected.length === 1 ? selected[0] : commonPrefix(selected) || fileName.replace(/\.(apkg|colpkg)$/i, "");
+  const { name: suggestedName, ankiDeck } = suggestDeckName(col, req.deckIds, fileName);
   return {
     rows,
-    suggestedName: ankiDeck.split("::").pop() || ankiDeck,
+    suggestedName,
     source: { file: fileName, ankiDeck },
     claudeStatus,
     claudeError,
@@ -122,10 +122,3 @@ export async function classifyImport(col: ParsedCollection, fileName: string, re
   };
 }
 
-function commonPrefix(names: string[]): string {
-  if (!names.length) return "";
-  const parts = names.map((n) => n.split("::"));
-  const out: string[] = [];
-  for (let i = 0; parts.every((p) => p[i] !== undefined && p[i] === parts[0][i]); i++) out.push(parts[0][i]);
-  return out.join("::");
-}

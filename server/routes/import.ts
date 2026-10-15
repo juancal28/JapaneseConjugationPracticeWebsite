@@ -34,7 +34,15 @@ export function importRouter(_store: DeckStore): Router {
       const preview: ImportPreview = {
         importId,
         fileName,
-        decks: col.decks.map((d) => ({ id: d.id, name: d.name, noteCount: col.notes.filter((n) => n.deckIds.includes(d.id)).length })),
+        decks: col.decks.map((d) => {
+          const subtree = new Set(col.decks.filter((x) => x.name === d.name || x.name.startsWith(d.name + "::")).map((x) => x.id));
+          return {
+            id: d.id,
+            name: d.name,
+            noteCount: col.notes.filter((n) => n.deckIds.includes(d.id)).length,
+            totalNoteCount: col.notes.filter((n) => n.deckIds.some((id) => subtree.has(id))).length,
+          };
+        }),
         noteTypes: col.noteTypes
           .map((nt) => {
             const notes = col.notes.filter((n) => n.noteTypeId === nt.id);

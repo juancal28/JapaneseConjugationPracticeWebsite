@@ -33,7 +33,7 @@ describe.skipIf(!loadJmdict())("classifyImport without Claude", () => {
       mappings: { "77": { expression: 0, reading: null, meaning: 1 } },
     });
     expect(result.claudeStatus).toBe("skipped-no-key");
-    expect(result.suggestedName).toBe("Lesson 3");
+    expect(result.suggestedName).toBe("Genki · Lesson 3");
     const byId = Object.fromEntries(result.rows.map((r) => [r.rowId, r]));
     expect(Object.keys(byId)).toEqual(["a", "b", "c", "d", "e"]);
     expect(byId.a).toMatchObject({ type: "ru", include: true, kana: "たべる", kanji: "食<rt>た</rt>べる" });
