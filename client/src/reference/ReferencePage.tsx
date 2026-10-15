@@ -40,13 +40,20 @@ function Cell({ section, row, col, divider }: { section: Section; row: RowDef; c
   );
 }
 
+/** The page splits each comparison into a plain table and a polite table to keep them readable. */
+const SPLITS: { id: string; title: string; cols: Col[] }[] = [
+  { id: "plain", title: "Plain forms", cols: ["plain", "neg"] },
+  { id: "polite", title: "Polite forms", cols: ["polite", "politeNeg"] },
+];
+
 /**
  * One table for a group of word types (e.g. godan + ichidan): each type gets its own
- * Plain / Negative / Polite / Polite negative columns, split by a thick divider, so the
- * same form sits on the same row for every type.
+ * columns, split by a thick divider, so the same form sits on the same row for every type.
+ * Rows the quiz never asks in these columns are left out.
  */
-function GroupTable({ group }: { group: SectionGroup }) {
-  const rows = group.sections[0].category === "verb" ? VERB_ROWS : ADJ_ROWS;
+function GroupTable({ group, cols: colIds }: { group: SectionGroup; cols: Col[] }) {
+  const cols = COLS.filter((c) => colIds.includes(c.id));
+  const rows = (group.sections[0].category === "verb" ? VERB_ROWS : ADJ_ROWS).filter((r) => colIds.some((c) => r.cells[c]));
   return (
     <div className="conj-wrap">
       <table className="conj-table ref-table">
@@ -56,7 +63,7 @@ function GroupTable({ group }: { group: SectionGroup }) {
               Form
             </th>
             {group.sections.map((s, i) => (
-              <th key={s.id} scope="colgroup" colSpan={COLS.length} className={i > 0 ? "group-start" : undefined}>
+              <th key={s.id} scope="colgroup" colSpan={cols.length} className={i > 0 ? "group-start" : undefined}>
                 {s.title}
                 <div className="group-sub">{s.subtitle}</div>
               </th>
@@ -64,7 +71,7 @@ function GroupTable({ group }: { group: SectionGroup }) {
           </tr>
           <tr>
             {group.sections.map((s, i) =>
-              COLS.map((c, j) => (
+              cols.map((c, j) => (
                 <th key={s.id + c.id} scope="col" className={i > 0 && j === 0 ? "group-start" : undefined}>
                   {c.label}
                 </th>
@@ -80,7 +87,7 @@ function GroupTable({ group }: { group: SectionGroup }) {
                 <div className="quiz-name">{row.quiz}</div>
               </th>
               {group.sections.map((s, i) =>
-                COLS.map((c, j) => <Cell key={s.id + c.id} section={s} row={row} col={c.id} divider={i > 0 && j === 0} />),
+                cols.map((c, j) => <Cell key={s.id + c.id} section={s} row={row} col={c.id} divider={i > 0 && j === 0} />),
               )}
             </tr>
           ))}
@@ -170,7 +177,12 @@ export default function ReferencePage() {
         {GROUPS.map((g) => (
           <section key={g.id}>
             <h2>{g.title}</h2>
-            <GroupTable group={g} />
+            {SPLITS.map((sp) => (
+              <div key={sp.id}>
+                <h3>{sp.title}</h3>
+                <GroupTable group={g} cols={sp.cols} />
+              </div>
+            ))}
             {g.id === "verbs" && <SoundChangeTable />}
           </section>
         ))}
