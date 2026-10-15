@@ -73,8 +73,12 @@ export const imperative: FormFn = (word, info, opts) => {
   // Deviations: polite also accepts the request forms textbooks teach as the polite
   // imperative, after the original's 〜なさい / 〜なさるな:
   //   〜てください (書いてください) and, negative, 〜ないでください (書かないでください).
-  if (opts.polite && !opts.neg) return [...toList(nasai(word, info)), toList(te(word, info, {}))[0] + "ください"];
-  if (opts.polite && opts.neg) return [...toList(nasai(word, info, opts)), toList(negative(word, info, {}))[0] + "でください"];
+  const request = opts.neg ? toList(negative(word, info, {}))[0] + "でください" : toList(te(word, info, {}))[0] + "ください";
+  if (opts.polite && info.exception === "honorific") {
+    // Honorific verbs already are polite: くださる -> くださいませ (not くださいなさい).
+    return opts.neg ? [request] : [stem(word) + "いませ", request];
+  }
+  if (opts.polite) return [...toList(nasai(word, info, opts)), request];
   return nasai(word, info, opts);
 };
 
@@ -92,7 +96,8 @@ const nasai = (word: string, info: Parameters<FormFn>[1], opts: Parameters<FormF
   }
   if (info.type === "ru") {
     if (info.exception === "kureru") {
-      if (opts.polite) return s + "なさるな";
+      // The original returned なさるな for the non-negative polite too.
+      if (opts.polite) return s + ending;
       return [s, s + "ろ"];
     }
     return s + ending;

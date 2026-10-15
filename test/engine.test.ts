@@ -33,6 +33,9 @@ describe("engine matches the original site's kana answers", () => {
           if (form.id === "imperative" && key === "polite" && want) want = [...want, expected.te[""]!.kana[0] + "ください"];
           // ...and the negative 〜ないでください, from the original's plain negative.
           if (form.id === "imperative" && key === "neg+polite" && want) want = [...want, expected.negative[""]!.kana[0] + "でください"];
+          // い-adjective polite negative also accepts 〜くないです (高くないです).
+          if (form.id === "adj-negative" && key === "polite" && word.type === "i" && want)
+            want = [...want, expected["adj-negative"][""]!.kana[0] + "です"];
           expect(cell?.kana ?? null, `${form.id} [${key}]`).toEqual(want);
         }
       }
@@ -80,6 +83,17 @@ describe("generalized irregulars and exceptions", () => {
     expect(conj(kudasaru, "imperative")?.kana).toEqual(["ください"]);
     expect(conj(kudasaru, "past")?.kana).toEqual(["くださった"]);
     expect(conj(kudasaru, "negative")?.kana).toEqual(["くださらない"]);
+    expect(conj(kudasaru, "imperative", { polite: true })?.kana).toEqual(["くださいませ", "くださってください"]);
+    expect(conj(kudasaru, "imperative", { polite: true, neg: true })?.kana).toEqual(["くださらないでください"]);
+    const irassharu = w("いらっしゃる", "いらっしゃる", "u", "honorific");
+    expect(conj(irassharu, "imperative", { polite: true })?.kana).toEqual(["いらっしゃいませ", "いらっしゃってください"]);
+  });
+
+  it("gives くれる a non-negative polite imperative", () => {
+    const kureru = w("くれる", "くれる", "ru", "kureru");
+    expect(conj(kureru, "imperative")?.kana).toEqual(["くれ", "くれろ"]);
+    expect(conj(kureru, "imperative", { polite: true })?.kana).toEqual(["くれなさい", "くれてください"]);
+    expect(conj(kureru, "imperative", { polite: true, neg: true })?.kana).toEqual(["くれなさるな", "くれないでください"]);
   });
 
   it("handles adj-ix compounds (かっこいい) and 良い kanji", () => {

@@ -7,7 +7,7 @@ import type { FormFn, WordInfo } from "./helpers";
  */
 
 function iStem(word: string, info: WordInfo): string {
-  if (info.exception === "ii" || word === "いい") {
+  if (info.exception === "ii") {
     if (word.endsWith("<rt>い</rt>い")) return word.slice(0, -"<rt>い</rt>い".length) + "<rt>よ</rt>";
     if (word.endsWith("いい")) return word.slice(0, -2) + "よ";
   }
@@ -36,7 +36,8 @@ export const adjNaru: FormFn = (word, info, opts) => {
 export const adjNegative: FormFn = (word, info, opts) => {
   check(info);
   const ending = opts.polite ? "ありません" : "ない";
-  if (info.type === "i") return iStem(word, info) + "く" + ending;
+  // Deviation: polite also accepts 〜くないです (高くないです), as the past already accepts 〜くなかったです.
+  if (info.type === "i") return opts.polite ? [iStem(word, info) + "くありません", iStem(word, info) + "くないです"] : iStem(word, info) + "くない";
   if (opts.polite) return [word + "では" + ending, word + "じゃ" + ending, word + "じゃないです"];
   return [word + "では" + ending, word + "じゃ" + ending];
 };

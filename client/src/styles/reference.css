@@ -32,3 +32,19 @@ body.dark .conj-table .rule { color: #9aa3ae; }
 /* The sound-change table reads left to right like the image it came from. */
 .conj-table.sound-changes thead th { text-align: left; }
 .conj-table.sound-changes tbody th { font-weight: 400; }
+
+/* Full answer tables */
+.reference > .reference-note { max-width: 760px; margin: 0 auto 8px; text-align: center; }
+.ref-table td, .ref-table th { vertical-align: top; }
+.ref-table tbody th { min-width: 150px; }
+.ref-table .quiz-name { font-weight: 400; font-size: 12px; color: #8a929c; margin-top: 2px; }
+.ref-table .variant + .variant { margin-top: 8px; padding-top: 6px; border-top: 1px dashed #d0d4da; }
+.conj-table .rule { font-size: 12px; }
+.ref-table .example { font-size: 16px; }
+.ref-table td.na { color: #9aa3ae; text-align: center; }
+body.dark .ref-table .variant + .variant { border-top-color: #3a3f47; }
+body.dark .ref-table .quiz-name { color: #6b7380; }
+.exceptions td { white-space: normal; vertical-align: top; }
+.exceptions .ex-note { max-width: 260px; }
+.ex-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 24px; }
+.ex-list li { margin: 0 0 2px; break-inside: avoid; white-space: nowrap; }
