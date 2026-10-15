@@ -41,7 +41,7 @@ a { color: var(--linkNormal); }
 .question:not(.furi) rt { display: none; }
 
 /* English / type */
-.english { margin: 0; }
+
 .type { margin-top: 15px; }
 .hidden { display: none; }
 
@@ -117,3 +117,6 @@ a { color: var(--linkNormal); }
 /* Decks fieldset additions */
 .manage-decks { display: block; margin-top: 1em; font-size: 14px; }
 .empty-pool { margin: 2em 0; }
+
+/* English meaning inside the question box */
+.question-eng { font-size: 17px; line-height: 1.3; color: var(--textNormal); opacity: .75; margin-top: 2px; padding: 0 12px; }

@@ -49,10 +49,12 @@ export function Settings({ legend = "Settings", id = "settings", children }: { l
   );
 }
 
-export function Question({ furi, children }: { furi: boolean; children: string }) {
+/** The word to conjugate, with its English meaning underneath (when Show English is on). */
+export function Question({ furi, english, children }: { furi: boolean; english?: string; children: string }) {
   return (
     <div className={"question" + (furi ? " furi" : "")}>
       <ruby dangerouslySetInnerHTML={{ __html: safeRubyHtml(children) }}></ruby>
+      {english && <div className="question-eng">{english}</div>}
     </div>
   );
 }
@@ -75,10 +77,6 @@ export function Feedback({ answer, status }: { answer: string; status: string })
       <h2 id="meaning"></h2>
     </div>
   );
-}
-
-export function English({ english, show }: { english: string; show: boolean }) {
-  return <h3 className={"english" + (show ? "" : " hidden")}>{english}</h3>;
 }
 
 export function Type({ label, hide }: { label: string; hide: boolean }) {

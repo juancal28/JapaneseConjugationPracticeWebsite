@@ -1,7 +1,7 @@
 import React from "react";
 import { ADJ_FORMS, VERB_FORMS, type FormDef } from "@shared/conjugation/forms";
 import { TYPE_LABELS, type Word, type WordAnswers } from "@shared/types";
-import { BackButton, CorrectScore, DarkModeButton, English, Feedback, Question, Settings, Toggle, ToggleList, Type } from "./components";
+import { BackButton, CorrectScore, DarkModeButton, Feedback, Question, Settings, Toggle, ToggleList, Type } from "./components";
 import UserInput from "./UserInput";
 import { Randomizer, generateItem } from "./randomizer";
 
@@ -67,7 +67,7 @@ export default class Conjugation extends React.Component<Props, State> {
   private kanji = stored("showKanji", true);
   private furi = stored("showFuri", true);
   private type = stored("hideType");
-  private showEnglish = stored("showEnglish");
+  private showEnglish = stored("showEnglish", true);
   private correct = 0;
   private incorrect = 0;
   private opts: Record<string, boolean> = {};
@@ -257,11 +257,12 @@ export default class Conjugation extends React.Component<Props, State> {
         <BackButton to="/decks" />
         <div className="qm-content">
           <h1 className="qm-heading">{this.props.title}</h1>
-          <Question furi={this.state.furi}>{this.state.question}</Question>
+          <Question furi={this.state.furi} english={this.state.showEnglish ? (word?.eng ?? "") : ""}>
+            {this.state.question}
+          </Question>
           <h3 id="random" style={{ margin: 0 }}>
             {this.state.form + " Form"}
           </h3>
-          <English english={word?.eng ?? ""} show={this.state.showEnglish} />
           <UserInput wait={this.state.wait} status={this.state.status} onSubmit={this.checkAnswer} onClear={this.newWord} />
           <div>
             <Type label={word ? TYPE_LABELS[word.type] : ""} hide={this.state.type} />

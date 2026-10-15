@@ -83,7 +83,8 @@ The engine also generalizes the original's hard-coded irregulars, so any する/
 - Honorific verbs (くださる, いらっしゃる…) use 〜いませ for the polite imperative (くださいませ), and くれる's polite imperative is no longer a negative.
 - Kanji display fixes: the original's 来る and 勉強する kanji imperatives were broken, and 来る's kanji ruby is now correct everywhere.
 - The original could freeze when only one unanswered word was left; that's fixed.
-- Show Kanji and Show Furigana are on by default, and the Last Answer box shows the answer in kanji with furigana
+- Show Kanji, Show Furigana and Show English are on by default (the English meaning sits in the question box), and the
+  Last Answer box shows the answer in kanji with furigana
   (the original showed hiragana).
 - The original's feedback button (a link to its author's Google Form) is not included.
 
