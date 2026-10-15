@@ -65,7 +65,7 @@ decks/                  # GIT-TRACKED
 docs/superpowers/specs/2026-10-14-anki-conjugation-practice-design.md   # copy of this design, committed first
 ```
 
-**Dependencies:** express, multer, fflate, fzstd, sql.js, @anthropic-ai/sdk, zod, dotenv, react, react-dom, react-router-dom, wanakana@4.0.2 (same version as the original), vite, @vitejs/plugin-react, typescript, tsx, concurrently, vitest.
+**Dependencies:** express, multer, fflate, sql.js, @anthropic-ai/sdk, zod, dotenv, react, react-dom, react-router-dom, wanakana@4.0.2 (same version as the original), vite, @vitejs/plugin-react, typescript, tsx, concurrently, vitest.
 
 **Dev and prod:** `npm run dev` runs the Vite dev server (5173) and the Express server via tsx (3001) together through `concurrently`. `npm run build && npm start` makes Express serve `dist/`, which is the form Railway will use.
 
@@ -144,7 +144,7 @@ docs/superpowers/specs/2026-10-14-anki-conjugation-practice-design.md   # copy o
 
 ### Anki parsing (`server/anki`)
 - An .apkg is a zip. Choose the collection file in this order:
-  1. `collection.anki21b` (zstd, decompress with fzstd),
+  1. `collection.anki21b` (zstd, decompressed with Node's built-in zlib.zstdDecompressSync),
   2. `collection.anki21`,
   3. `collection.anki2`. Ignore the legacy "please update Anki" stub that newer exports also include.
 - **Media is ignored.**
@@ -306,3 +306,11 @@ docs/superpowers/specs/2026-10-14-anki-conjugation-practice-design.md   # copy o
 - **Shake:** keyframes ±2/4/8px over .82s. Full CSS values are in the original page HTML and source maps.
 
 **Conjugation rules.** Port them verbatim from `src/components/japanese/verbs/*.js` and `adjectives/adj-*.js` in the source maps. The golden fixture enforces them.
+
+
+## Implementation notes (2026-10-14)
+
+- Verb and adjective forms live in shared/conjugation/verbs.ts and adjectives.ts (one file each, not one file per form).
+- fzstd was replaced by Node 22.15+'s built-in zstd.
+- The golden test compares kana only; kanji differs from the original wherever the original's ruby was wrong.
+- The ある negative conditional/provisional were fixed to なかったら/なければ.

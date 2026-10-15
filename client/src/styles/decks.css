@@ -1,0 +1,60 @@
+/* Deck manager: same palette and type as the practice page, laid out for reading tables. */
+
+.dm { max-width: 1100px; margin: 0 auto; padding: 24px 16px 96px; text-align: left; }
+.dm h1 { font-size: 36px; line-height: 40px; margin: 18px 0 6px; text-align: center; }
+.dm .dm-sub { text-align: center; color: var(--toggleHeading); margin: 0 0 28px; }
+.dm h2 { font-size: 1.4rem; margin: 32px 0 12px; }
+.dm section { margin-bottom: 32px; }
+
+.dm-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.dm-table th { font-weight: 500; color: var(--toggleHeading); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+.dm-table th, .dm-table td { padding: 8px 10px; border-bottom: 1px solid var(--borderInput); text-align: left; vertical-align: top; }
+.dm-table td.num { font-variant-numeric: tabular-nums; }
+.dm-table tr.attention td { background: color-mix(in srgb, var(--yellow) 14%, transparent); }
+.dm-table tr.excluded td { opacity: .55; }
+.dm-table tr.invalid td { background: color-mix(in srgb, var(--red) 14%, transparent); }
+
+.dm-btn {
+  font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 8px; cursor: pointer;
+  background: var(--bgQuestion); color: var(--textNormal); border: 1px solid var(--borderInput);
+}
+.dm-btn:hover { border-color: var(--toggleHeading); }
+.dm-btn.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+.dm-btn.danger { color: var(--red); }
+.dm-btn:disabled { opacity: .5; cursor: default; }
+.dm-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+.dm-drop {
+  border: 2px dashed var(--borderInput); border-radius: 12px; padding: 28px; text-align: center; cursor: pointer;
+  color: var(--toggleHeading);
+}
+.dm-drop.over, .dm-drop:hover { border-color: var(--blue); color: var(--textNormal); }
+
+.dm input[type="text"], .dm select {
+  font: inherit; font-size: 14px; padding: 4px 6px; border-radius: 6px; width: 100%;
+  background: var(--bgInput); color: var(--textInput); border: 1px solid var(--borderInput);
+}
+.dm input.jp { font-size: 16px; }
+.dm .deck-name { max-width: 420px; font-size: 16px; padding: 6px 10px; }
+
+.dm-banner { padding: 10px 14px; border-radius: 8px; margin: 12px 0; background: var(--bgQuestion); }
+.dm-banner.warn { border-left: 4px solid var(--orange); }
+.dm-banner.error { border-left: 4px solid var(--red); }
+.dm-banner.ok { border-left: 4px solid var(--green); }
+
+.dm-tree label { display: block; padding: 3px 0; cursor: pointer; }
+.dm-muted { color: var(--toggleHeading); font-size: 13px; }
+.dm-flags { margin: 4px 0 0; padding: 0; list-style: none; font-size: 12px; color: var(--orange); }
+.dm-note { font-size: 12px; color: var(--toggleHeading); margin-top: 4px; }
+.dm-preview { font-size: 13px; color: var(--toggleHeading); white-space: nowrap; }
+.dm-preview ruby rt { font-size: 9px; }
+.dm-filter { display: flex; gap: 14px; align-items: center; margin: 8px 0 12px; font-size: 14px; flex-wrap: wrap; }
+.dm-sticky { position: sticky; bottom: 0; background: var(--bg); padding: 12px 0; border-top: 1px solid var(--borderInput); }
+.dm-spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--borderInput); border-top-color: var(--blue); border-radius: 50%; animation: dm-spin 0.8s linear infinite; vertical-align: -2px; margin-right: 8px; }
+@keyframes dm-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 700px) {
+  .dm-table.review thead { display: none; }
+  .dm-table.review tr { display: block; border-bottom: 1px solid var(--borderInput); padding: 8px 0; }
+  .dm-table.review td { display: block; border: none; padding: 4px 0; }
+}

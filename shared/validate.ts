@@ -1,6 +1,6 @@
 import { isHiragana } from "wanakana";
-import { isCleanRuby, stripRuby } from "../shared/ids";
-import { WORD_EXCEPTIONS, type Word } from "../shared/types";
+import { isCleanRuby, stripRuby } from "./ids";
+import { WORD_EXCEPTIONS, type Word } from "./types";
 
 const GODAN_ENDINGS = ["う", "く", "ぐ", "す", "つ", "ぬ", "ぶ", "む", "る"];
 

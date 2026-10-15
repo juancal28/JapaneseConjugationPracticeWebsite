@@ -85,15 +85,29 @@ export function suggestFromPos(pos: string[], surface: string): Suggestion {
 export interface JmdictResult {
   candidates: JmdictCandidate[];
   suggestion: Suggestion | null;
+  /** Set when the card's form had to be adjusted to match (有名な -> 有名). */
+  normalized?: { surface: string; reading: string };
 }
 
 /**
  * Looks a card's word up. Handles する-verbs written with する (勉強する), which JMdict
- * lists as the bare noun (勉強, pos "vs").
+ * lists as the bare noun (勉強, pos "vs"), and な-adjectives written with な (有名な).
  */
 export function classifyWithJmdict(index: JmdictIndex, surface: string, reading: string): JmdictResult {
   let entries = lookup(index, surface, reading);
   let suruSuffix = false;
+  if (!entries.length && surface.length > 1 && surface.endsWith("な")) {
+    const base = surface.slice(0, -1);
+    const baseReading = reading.endsWith("な") ? reading.slice(0, -1) : reading;
+    const naEntries = lookup(index, base, baseReading).filter((e) => e.p.includes("adj-na"));
+    if (naEntries.length) {
+      return {
+        candidates: naEntries.slice(0, 5).map(toCandidate),
+        suggestion: { type: "na", exception: null, suruNoun: false },
+        normalized: { surface: base, reading: baseReading },
+      };
+    }
+  }
   if (!entries.length && /(する)$/.test(surface)) {
     entries = lookup(index, surface.slice(0, -2), reading.endsWith("する") ? reading.slice(0, -2) : reading).filter((e) =>
       e.p.includes("vs"),

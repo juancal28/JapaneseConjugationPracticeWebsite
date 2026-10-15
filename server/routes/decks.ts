@@ -2,7 +2,7 @@ import { Router } from "express";
 import { slugify } from "../../shared/ids";
 import type { DeckFile } from "../../shared/types";
 import type { DeckStore } from "../store/deckStore";
-import { validateWords } from "../validate";
+import { validateWords } from "../../shared/validate";
 
 export function decksRouter(store: DeckStore): Router {
   const r = Router();

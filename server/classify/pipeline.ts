@@ -6,15 +6,10 @@ import type { ClassifyRequest, ReviewResult, ReviewRow } from "../../shared/impo
 import { WORD_EXCEPTIONS, type WordException } from "../../shared/types";
 import { classifyWithJmdict, loadJmdict } from "./jmdict";
 import { ClaudeUnavailableError, reviewWithClaude, type ReviewInput } from "./claudeReview";
-import { wordProblem } from "../validate";
+import { rowProblem } from "../../shared/reviewRows";
 
 const KANA_ONLY = /^[\p{Script=Hiragana}\p{Script=Katakana}ー]+$/u;
 const HAS_JP = /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u;
-
-export function rowProblem(row: ReviewRow): string | null {
-  if (!row.include || row.type === "skip") return null;
-  return wordProblem({ id: "", kana: row.kana, kanji: row.kanji, eng: row.eng, type: row.type, exception: row.exception });
-}
 
 /** Extract -> JMdict -> Claude review -> rows for the review table. */
 export async function classifyImport(col: ParsedCollection, fileName: string, req: ClassifyRequest): Promise<ReviewResult> {
@@ -37,8 +32,11 @@ export async function classifyImport(col: ParsedCollection, fileName: string, re
     const meaning = field(mapping.meaning);
 
     const jm = jmdict ? classifyWithJmdict(jmdict, expr.surface, reading) : { candidates: [], suggestion: null };
+    if (jm.normalized) {
+      expr.surface = jm.normalized.surface;
+      reading = jm.normalized.reading;
+    }
     if (!reading && jm.candidates[0]) reading = jm.candidates[0].kana[0] ?? "";
-    if (jmdict && !jm.candidates.length) flags.push("No JMdict match");
     if (jm.suggestion?.suruNoun) flags.push("する-noun without する: add する to practice it as a verb");
 
     const type = jm.suggestion?.type ?? "skip";
