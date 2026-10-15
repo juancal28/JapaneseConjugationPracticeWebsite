@@ -48,3 +48,9 @@ body.dark .ref-table .quiz-name { color: #6b7380; }
 .exceptions .ex-note { max-width: 260px; }
 .ex-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 24px; }
 .ex-list li { margin: 0 0 2px; break-inside: avoid; white-space: nowrap; }
+
+/* Side-by-side word types: a thick divider starts each type's columns. */
+.ref-table .group-start { border-left: 3px solid #8a929c; }
+body.dark .ref-table .group-start { border-left-color: #6b7380; }
+.ref-table thead .group-sub { font-weight: 400; font-size: 12px; color: #8a929c; white-space: normal; margin-top: 2px; }
+.ref-table thead tr:first-child th[scope="colgroup"] { font-size: 16px; }

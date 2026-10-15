@@ -3,7 +3,7 @@ import { conjugateCell } from "@shared/conjugation/answerKey";
 import { FORMS_BY_ID } from "@shared/conjugation/forms";
 import { stripRuby } from "@shared/ids";
 import { BackButton, DarkModeButton } from "../practice/components";
-import { ADJ_ROWS, COLS, EXCEPTIONS, SECTIONS, VERB_ROWS, presentForms, type Col, type RowDef, type Section } from "./referenceData";
+import { ADJ_ROWS, COLS, EXCEPTIONS, GROUPS, VERB_ROWS, presentForms, type Col, type RowDef, type Section, type SectionGroup } from "./referenceData";
 import { exceptionDiffs } from "./referenceModel";
 import soundChanges from "./te-ta-sound-changes.json";
 import "../styles/reference.css";
@@ -17,18 +17,19 @@ function cellAnswers(section: Section, row: RowDef, col: Col): string[][] | null
   return perWord.every((a) => a.length === 0) ? [] : perWord;
 }
 
-function Cell({ section, row, col }: { section: Section; row: RowDef; col: Col }) {
+function Cell({ section, row, col, divider }: { section: Section; row: RowDef; col: Col; divider: boolean }) {
   const answers = cellAnswers(section, row, col);
-  if (answers === null) return <td className="na">—</td>;
+  const cls = divider ? "group-start" : undefined;
+  if (answers === null) return <td className={["na", cls].filter(Boolean).join(" ")}>—</td>;
   if (answers.length === 0)
     return (
-      <td className="na">
+      <td className={["na", cls].filter(Boolean).join(" ")}>
         — <div className="rule">no such form</div>
       </td>
     );
   const rules = section.rules[row.id]?.[col] ?? [];
   return (
-    <td>
+    <td className={cls}>
       {rules.map((rule, i) => (
         <div key={i} className="variant">
           <div className="rule">{rule}</div>
@@ -39,19 +40,36 @@ function Cell({ section, row, col }: { section: Section; row: RowDef; col: Col }
   );
 }
 
-function SectionTable({ section }: { section: Section }) {
-  const rows = section.category === "verb" ? VERB_ROWS : ADJ_ROWS;
+/**
+ * One table for a group of word types (e.g. godan + ichidan): each type gets its own
+ * Plain / Negative / Polite / Polite negative columns, split by a thick divider, so the
+ * same form sits on the same row for every type.
+ */
+function GroupTable({ group }: { group: SectionGroup }) {
+  const rows = group.sections[0].category === "verb" ? VERB_ROWS : ADJ_ROWS;
   return (
     <div className="conj-wrap">
       <table className="conj-table ref-table">
         <thead>
           <tr>
-            <th scope="col">Form</th>
-            {COLS.map((c) => (
-              <th key={c.id} scope="col">
-                {c.label}
+            <th scope="col" rowSpan={2}>
+              Form
+            </th>
+            {group.sections.map((s, i) => (
+              <th key={s.id} scope="colgroup" colSpan={COLS.length} className={i > 0 ? "group-start" : undefined}>
+                {s.title}
+                <div className="group-sub">{s.subtitle}</div>
               </th>
             ))}
+          </tr>
+          <tr>
+            {group.sections.map((s, i) =>
+              COLS.map((c, j) => (
+                <th key={s.id + c.id} scope="col" className={i > 0 && j === 0 ? "group-start" : undefined}>
+                  {c.label}
+                </th>
+              )),
+            )}
           </tr>
         </thead>
         <tbody>
@@ -61,9 +79,9 @@ function SectionTable({ section }: { section: Section }) {
                 {row.label}
                 <div className="quiz-name">{row.quiz}</div>
               </th>
-              {COLS.map((c) => (
-                <Cell key={c.id} section={section} row={row} col={c.id} />
-              ))}
+              {group.sections.map((s, i) =>
+                COLS.map((c, j) => <Cell key={s.id + c.id} section={s} row={row} col={c.id} divider={i > 0 && j === 0} />),
+              )}
             </tr>
           ))}
         </tbody>
@@ -149,12 +167,11 @@ export default function ReferencePage() {
           Every answer the quiz accepts, with the rule that builds it. Rows are the quiz's forms; columns are its Negative and Polite options. Where a
           cell lists several answers, any of them is marked correct.
         </p>
-        {SECTIONS.map((s) => (
-          <section key={s.id}>
-            <h2>{s.title}</h2>
-            <p className="reference-note">{s.subtitle}</p>
-            <SectionTable section={s} />
-            {s.id === "godan" && <SoundChangeTable />}
+        {GROUPS.map((g) => (
+          <section key={g.id}>
+            <h2>{g.title}</h2>
+            <GroupTable group={g} />
+            {g.id === "verbs" && <SoundChangeTable />}
           </section>
         ))}
         <section>

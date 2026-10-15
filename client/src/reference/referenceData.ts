@@ -250,6 +250,20 @@ export const SECTIONS: Section[] = [
   },
 ];
 
+/** Sections shown side by side in one table, so the same form lines up across types. */
+export interface SectionGroup {
+  id: string;
+  title: string;
+  sections: Section[];
+}
+
+const byId = (id: string) => SECTIONS.find((s) => s.id === id)!;
+export const GROUPS: SectionGroup[] = [
+  { id: "verbs", title: "Godan and ichidan verbs", sections: [byId("godan"), byId("ichidan")] },
+  { id: "irregular", title: "Irregular verbs (する, 来る)", sections: [byId("irregular")] },
+  { id: "adjectives", title: "Adjectives", sections: [byId("i-adj"), byId("na-adj")] },
+];
+
 /** Words whose answers break their type's rules, with what changes. */
 export interface ExceptionDef {
   word: Word;
