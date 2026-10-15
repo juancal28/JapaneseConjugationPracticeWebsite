@@ -31,6 +31,8 @@ describe("engine matches the original site's kana answers", () => {
           // Intentional addition: the polite imperative also accepts 〜てください, built
           // from the original's own plain て-form (書きなさい + 書いてください).
           if (form.id === "imperative" && key === "polite" && want) want = [...want, expected.te[""]!.kana[0] + "ください"];
+          // ...and the negative 〜ないでください, from the original's plain negative.
+          if (form.id === "imperative" && key === "neg+polite" && want) want = [...want, expected.negative[""]!.kana[0] + "でください"];
           expect(cell?.kana ?? null, `${form.id} [${key}]`).toEqual(want);
         }
       }
@@ -96,8 +98,14 @@ describe("generalized irregulars and exceptions", () => {
     expect(conj(w("たべる", "食<rt>た</rt>べる", "ru"), "imperative", { polite: true })?.kana).toEqual(["たべなさい", "たべてください"]);
     expect(conj(w("いく", "行<rt>い</rt>く", "u", "iku"), "imperative", { polite: true })?.kana).toEqual(["いきなさい", "いってください"]);
     expect(conj(w("くる", "来<rt>く</rt>る", "irr"), "imperative", { polite: true })?.kanji).toEqual(["来<rt>き</rt>なさい", "来<rt>き</rt>てください"]);
-    // The polite negative stays as the original had it.
-    expect(conj(w("かく", "書<rt>か</rt>く", "u"), "imperative", { polite: true, neg: true })?.kana).toEqual(["かきなさるな"]);
+    // Polite negative: the original's 〜なさるな plus 〜ないでください.
+    expect(conj(w("かく", "書<rt>か</rt>く", "u"), "imperative", { polite: true, neg: true })?.kana).toEqual(["かきなさるな", "かかないでください"]);
+    expect(conj(w("くる", "来<rt>く</rt>る", "irr"), "imperative", { polite: true, neg: true })?.kanji).toEqual([
+      "来<rt>き</rt>なさるな",
+      "来<rt>こ</rt>ないでください",
+    ]);
+    // The plain negative imperative is unchanged.
+    expect(conj(w("かく", "書<rt>か</rt>く", "u"), "imperative", { neg: true })?.kana).toEqual(["かくな"]);
   });
 
   it("returns null for impossible combinations", () => {

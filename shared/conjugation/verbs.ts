@@ -70,9 +70,11 @@ export const conditional: FormFn = (word, info, opts) => {
 
 export const imperative: FormFn = (word, info, opts) => {
   if (opts.neg && !opts.polite) return word + "な";
-  // Deviation: polite also accepts the request form 〜てください (書いてください), which
-  // textbooks often teach as the polite imperative, after the original's 〜なさい.
+  // Deviations: polite also accepts the request forms textbooks teach as the polite
+  // imperative, after the original's 〜なさい / 〜なさるな:
+  //   〜てください (書いてください) and, negative, 〜ないでください (書かないでください).
   if (opts.polite && !opts.neg) return [...toList(nasai(word, info)), toList(te(word, info, {}))[0] + "ください"];
+  if (opts.polite && opts.neg) return [...toList(nasai(word, info, opts)), toList(negative(word, info, {}))[0] + "でください"];
   return nasai(word, info, opts);
 };
 

@@ -75,7 +75,7 @@ The engine also generalizes the original's hard-coded irregulars, so any する/
 くださる-type verbs, くれる, and いい-compounds (かっこいい). Intentional deviations:
 
 - ある: the negative conditional/provisional are なかったら/なければ (the original gives あらなかったら/あらなければ).
-- The polite imperative accepts the request form 〜てください (書いてください) as well as the original's 〜なさい (書きなさい).
+- The polite imperative also accepts the request forms 〜てください (書いてください) and 〜ないでください (書かないでください), alongside the original's 〜なさい / 〜なさるな.
 - Kanji display fixes: the original's 来る and 勉強する kanji imperatives were broken, and 来る's kanji ruby is now correct everywhere.
 - The original could freeze when only one unanswered word was left; that's fixed.
 - The original's feedback button (a link to its author's Google Form) is not included.
