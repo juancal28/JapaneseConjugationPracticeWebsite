@@ -3,7 +3,7 @@ import { ADJ_FORMS, VERB_FORMS, allCombos, comboKey, type FormDef } from "./form
 import type { FormResult } from "./helpers";
 
 /** Bump when the engine's output changes, then run `npm run keys:rebuild`. */
-export const ENGINE_VERSION = 1;
+export const ENGINE_VERSION = 2;
 
 const toList = (r: FormResult): string[] => (Array.isArray(r) ? r : [r]);
 

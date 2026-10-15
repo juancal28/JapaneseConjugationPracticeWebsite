@@ -27,7 +27,10 @@ describe("engine matches the original site's kana answers", () => {
           const key = comboKey(form, opts);
           const cell = conjugateCell(word, form, opts);
           const dev = KANA_DEVIATIONS[`${word.kana}|${form.id}|${key}`];
-          const want = dev ?? expected[form.id][key]?.kana ?? null;
+          let want = dev ?? expected[form.id][key]?.kana ?? null;
+          // Intentional addition: the polite imperative also accepts 〜てください, built
+          // from the original's own plain て-form (書きなさい + 書いてください).
+          if (form.id === "imperative" && key === "polite" && want) want = [...want, expected.te[""]!.kana[0] + "ください"];
           expect(cell?.kana ?? null, `${form.id} [${key}]`).toEqual(want);
         }
       }
@@ -83,6 +86,18 @@ describe("generalized irregulars and exceptions", () => {
     expect(conj(kakkoii, "adj-past")?.kana).toEqual(["かっこよかった"]);
     const ii = w("いい", "良<rt>い</rt>い", "i", "ii");
     expect(conj(ii, "adj-negative")?.kanji).toEqual(["良<rt>よ</rt>くない"]);
+  });
+
+  it("accepts both 〜なさい and 〜てください for the polite imperative", () => {
+    expect(conj(w("かく", "書<rt>か</rt>く", "u"), "imperative", { polite: true })).toEqual({
+      kana: ["かきなさい", "かいてください"],
+      kanji: ["書<rt>か</rt>きなさい", "書<rt>か</rt>いてください"],
+    });
+    expect(conj(w("たべる", "食<rt>た</rt>べる", "ru"), "imperative", { polite: true })?.kana).toEqual(["たべなさい", "たべてください"]);
+    expect(conj(w("いく", "行<rt>い</rt>く", "u", "iku"), "imperative", { polite: true })?.kana).toEqual(["いきなさい", "いってください"]);
+    expect(conj(w("くる", "来<rt>く</rt>る", "irr"), "imperative", { polite: true })?.kanji).toEqual(["来<rt>き</rt>なさい", "来<rt>き</rt>てください"]);
+    // The polite negative stays as the original had it.
+    expect(conj(w("かく", "書<rt>か</rt>く", "u"), "imperative", { polite: true, neg: true })?.kana).toEqual(["かきなさるな"]);
   });
 
   it("returns null for impossible combinations", () => {
