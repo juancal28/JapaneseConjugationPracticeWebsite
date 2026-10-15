@@ -11,7 +11,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "paths": { "@shared/*": ["./shared/*"] },
     "types": ["node", "vite/client"]
   },
-  "include": ["shared", "server", "client/src", "scripts", "test"]
+  "include": ["shared", "server", "client/src", "scripts", "test", "types"]
 }
