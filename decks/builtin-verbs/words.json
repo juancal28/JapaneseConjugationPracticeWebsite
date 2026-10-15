@@ -1,0 +1,727 @@
+{
+  "name": "Built-in Verbs",
+  "slug": "builtin-verbs",
+  "builtin": true,
+  "words": [
+    {
+      "id": "いく|行く",
+      "kana": "いく",
+      "kanji": "<rb>行</rb><rt>い</rt>く",
+      "eng": "go",
+      "type": "u",
+      "exception": "iku"
+    },
+    {
+      "id": "きく|聞く",
+      "kana": "きく",
+      "kanji": "聞<rt>き</rt>く",
+      "eng": "hear, ask",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "かく|書く",
+      "kana": "かく",
+      "kanji": "書<rt>か</rt>く",
+      "eng": "write",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "はく|履く",
+      "kana": "はく",
+      "kanji": "履<rt>は</rt>く",
+      "eng": "put on (shoes), wear (pants, skirt)",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "もっていく|持って行く",
+      "kana": "もっていく",
+      "kanji": "持<rt>も</rt>って<rb>行</rb><rt>い</rt>く",
+      "eng": "take",
+      "type": "u",
+      "exception": "iku"
+    },
+    {
+      "id": "ひく|弾く",
+      "kana": "ひく",
+      "kanji": "弾<rt>ひ</rt>く",
+      "eng": "play (instruments)",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "はたらく|働く",
+      "kana": "はたらく",
+      "kanji": "働<rt>はたら</rt>く",
+      "eng": "work",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "あるく|歩く",
+      "kana": "あるく",
+      "kanji": "歩<rt>ある</rt>く",
+      "eng": "walk, go on foot",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "なく|泣く",
+      "kana": "なく",
+      "kanji": "泣<rt>な</rt>く",
+      "eng": "cry, weep",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "みがく|磨く",
+      "kana": "みがく",
+      "kanji": "磨<rt>みが</rt>く",
+      "eng": "polish, grind",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "かえる|帰る",
+      "kana": "かえる",
+      "kanji": "帰<rt>かえ</rt>る",
+      "eng": "go back home",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "ある|有る",
+      "kana": "ある",
+      "kanji": "有<rt>あ</rt>る",
+      "eng": "exist, there is",
+      "type": "u",
+      "exception": "aru"
+    },
+    {
+      "id": "とる|撮る",
+      "kana": "とる",
+      "kanji": "撮<rt>と</rt>る",
+      "eng": "take (a photograph), film",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "わかる|分かる",
+      "kana": "わかる",
+      "kanji": "分<rt>わ</rt>かる",
+      "eng": "understand",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "のる|乗る",
+      "kana": "のる",
+      "kanji": "乗<rt>の</rt>る",
+      "eng": "ride, take",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "やる|遣る",
+      "kana": "やる",
+      "kanji": "遣<rt>や</rt>る",
+      "eng": "do, give",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "すわる|座る",
+      "kana": "すわる",
+      "kanji": "座<rt>すわ</rt>る",
+      "eng": "sit, sit down",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "はいる|入る",
+      "kana": "はいる",
+      "kanji": "入<rt>はい</rt>る",
+      "eng": "enter",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "かぶる|被る",
+      "kana": "かぶる",
+      "kanji": "被<rt>かぶ</rt>る",
+      "eng": "wear, put on (on one's head)",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "しる|知る",
+      "kana": "しる",
+      "kanji": "知<rt>し</rt>る",
+      "eng": "know",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "のむ|飲む",
+      "kana": "のむ",
+      "kanji": "飲<rt>の</rt>む",
+      "eng": "drink",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "よむ|読む",
+      "kana": "よむ",
+      "kanji": "読<rt>よ</rt>む",
+      "eng": "read",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "やすむ|休む",
+      "kana": "やすむ",
+      "kanji": "休<rt>やす</rt>む",
+      "eng": "take a rest, take a break",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "すむ|住む",
+      "kana": "すむ",
+      "kanji": "住<rt>す</rt>む",
+      "eng": "live, reside",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "あむ|編む",
+      "kana": "あむ",
+      "kanji": "編<rt>あ</rt>む",
+      "eng": "knit",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "おちこむ|落ち込む",
+      "kana": "おちこむ",
+      "kanji": "落<rt>お</rt>ち込<rt>こ</rt>む",
+      "eng": "fall into depression",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "たのむ|頼む",
+      "kana": "たのむ",
+      "kanji": "頼<rt>たの</rt>む",
+      "eng": "order, ask for",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "つつむ|包む",
+      "kana": "つつむ",
+      "kanji": "包<rt>つつ</rt>む",
+      "eng": "wrap, pack",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "ぬすむ|盗む",
+      "kana": "ぬすむ",
+      "kanji": "盗<rt>ぬす</rt>む",
+      "eng": "steal, rob",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "ふむ|踏む",
+      "kana": "ふむ",
+      "kanji": "踏<rt>ふ</rt>む",
+      "eng": "step on, tread on",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "はなす|話す",
+      "kana": "はなす",
+      "kanji": "話<rt>はな</rt>す",
+      "eng": "speak, talk",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "かえす|返す",
+      "kana": "かえす",
+      "kanji": "返<rt>かえ</rt>す",
+      "eng": "return, repay",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "けす|消す",
+      "kana": "けす",
+      "kanji": "消<rt>け</rt>す",
+      "eng": "switch off, turn off",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "なくす|無くす",
+      "kana": "なくす",
+      "kanji": "無<rt>な</rt>くす",
+      "eng": "lose, get rid of",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "かす|貸す",
+      "kana": "かす",
+      "kanji": "貸<rt>か</rt>す",
+      "eng": "lend, lease",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "おろす|下ろす",
+      "kana": "おろす",
+      "kanji": "下<rt>お</rt>ろす",
+      "eng": "bring down, take down",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "さがす|探す",
+      "kana": "さがす",
+      "kanji": "探<rt>さが</rt>す",
+      "eng": "search for, look for",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "おこす|起こす",
+      "kana": "おこす",
+      "kanji": "起<rt>お</rt>こす",
+      "eng": "wake (someone) up",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "だす|出す",
+      "kana": "だす",
+      "kanji": "出<rt>だ</rt>す",
+      "eng": "take out",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "なおす|直す",
+      "kana": "なおす",
+      "kanji": "直<rt>なお</rt>す",
+      "eng": "repair, fix",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "あう|会う",
+      "kana": "あう",
+      "kanji": "会<rt>あ</rt>う",
+      "eng": "meet",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "かう|買う",
+      "kana": "かう",
+      "kanji": "買<rt>か</rt>う",
+      "eng": "buy",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "すう|吸う",
+      "kana": "すう",
+      "kanji": "吸<rt>す</rt>う",
+      "eng": "inhale, suck",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "つかう|使う",
+      "kana": "つかう",
+      "kanji": "使<rt>つか</rt>う",
+      "eng": "use",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "てつだう|手伝う",
+      "kana": "てつだう",
+      "kanji": "手<rt>て</rt>伝<rt>つだ</rt>う",
+      "eng": "help, assist",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "うたう|歌う",
+      "kana": "うたう",
+      "kanji": "歌<rt>うた</rt>う",
+      "eng": "sing",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "あらう|洗う",
+      "kana": "あらう",
+      "kanji": "洗<rt>あら</rt>う",
+      "eng": "wash",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "いう|言う",
+      "kana": "いう",
+      "kanji": "言<rt>い</rt>う",
+      "eng": "say, tell",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "おもう|思う",
+      "kana": "おもう",
+      "kanji": "思<rt>おも</rt>う",
+      "eng": "think",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "もらう|貰う",
+      "kana": "もらう",
+      "kanji": "貰<rt>もら</rt>う",
+      "eng": "receive",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "まつ|待つ",
+      "kana": "まつ",
+      "kanji": "待<rt>ま</rt>つ",
+      "eng": "wait, wait for",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "たつ|立つ",
+      "kana": "たつ",
+      "kanji": "立<rt>た</rt>つ",
+      "eng": "stand, rise",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "もつ|持つ",
+      "kana": "もつ",
+      "kanji": "持<rt>も</rt>つ",
+      "eng": "have, possess",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "かつ|勝つ",
+      "kana": "かつ",
+      "kanji": "勝<rt>か</rt>つ",
+      "eng": "win",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "うつ|打つ",
+      "kana": "うつ",
+      "kanji": "打<rt>う</rt>つ",
+      "eng": "hit, strike",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "そだつ|育つ",
+      "kana": "そだつ",
+      "kanji": "育<rt>そだ</rt>つ",
+      "eng": "be brought up, grow",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "めだつ|目立つ",
+      "kana": "めだつ",
+      "kanji": "目<rt>め</rt>立<rt>だ</rt>つ",
+      "eng": "stand out, be conspicuous",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "うけもつ|受け持つ",
+      "kana": "うけもつ",
+      "kanji": "受<rt>う</rt>け持<rt>も</rt>つ",
+      "eng": "be in charge of, teach",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "およぐ|泳ぐ",
+      "kana": "およぐ",
+      "kanji": "泳<rt>およ</rt>ぐ",
+      "eng": "swim",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "いそぐ|急ぐ",
+      "kana": "いそぐ",
+      "kanji": "急<rt>いそ</rt>ぐ",
+      "eng": "hurry, do quickly",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "ぬぐ|脱ぐ",
+      "kana": "ぬぐ",
+      "kanji": "脱<rt>ぬ</rt>ぐ",
+      "eng": "take off (clothes)",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "さわぐ|騒ぐ",
+      "kana": "さわぐ",
+      "kanji": "騒<rt>さわ</rt>ぐ",
+      "eng": "make a noise, make a racket",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "そそぐ|注ぐ",
+      "kana": "そそぐ",
+      "kanji": "注<rt>そそ</rt>ぐ",
+      "eng": "pour",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "かせぐ|稼ぐ",
+      "kana": "かせぐ",
+      "kanji": "稼<rt>かせ</rt>ぐ",
+      "eng": "earn, make money",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "つなぐ|繋ぐ",
+      "kana": "つなぐ",
+      "kanji": "繋<rt>つな</rt>ぐ",
+      "eng": "connect (someone, something)",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "ふせぐ|防ぐ",
+      "kana": "ふせぐ",
+      "kanji": "防<rt>ふせ</rt>ぐ",
+      "eng": "prevent",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "あそぶ|遊ぶ",
+      "kana": "あそぶ",
+      "kanji": "遊<rt>あそ</rt>ぶ",
+      "eng": "play",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "えらぶ|選ぶ",
+      "kana": "えらぶ",
+      "kanji": "選<rt>えら</rt>ぶ",
+      "eng": "choose, elect",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "ころぶ|転ぶ",
+      "kana": "ころぶ",
+      "kanji": "転<rt>ころ</rt>ぶ",
+      "eng": "fall down, fall over",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "はこぶ|運ぶ",
+      "kana": "はこぶ",
+      "kanji": "運<rt>はこ</rt>ぶ",
+      "eng": "carry, transport",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "よぶ|呼ぶ",
+      "kana": "よぶ",
+      "kanji": "呼<rt>よ</rt>ぶ",
+      "eng": "call, name",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "とぶ|飛ぶ",
+      "kana": "とぶ",
+      "kanji": "飛<rt>と</rt>ぶ",
+      "eng": "fly",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "ならぶ|並ぶ",
+      "kana": "ならぶ",
+      "kanji": "並<rt>なら</rt>ぶ",
+      "eng": "line up, be parallel",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "よろこぶ|喜ぶ",
+      "kana": "よろこぶ",
+      "kanji": "喜<rt>よろこ</rt>ぶ",
+      "eng": "be happy, be delighted",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "むすぶ|結ぶ",
+      "kana": "むすぶ",
+      "kanji": "結<rt>むす</rt>ぶ",
+      "eng": "tie, join",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "まなぶ|学ぶ",
+      "kana": "まなぶ",
+      "kanji": "学<rt>まな</rt>ぶ",
+      "eng": "learn, study",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "しぬ|死ぬ",
+      "kana": "しぬ",
+      "kanji": "死<rt>し</rt>ぬ",
+      "eng": "die",
+      "type": "u",
+      "exception": null
+    },
+    {
+      "id": "おきる|起きる",
+      "kana": "おきる",
+      "kanji": "起<rt>お</rt>きる",
+      "eng": "get up, get out of bed",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "たべる|食べる",
+      "kana": "たべる",
+      "kanji": "食<rt>た</rt>べる",
+      "eng": "eat",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "ねる|寝る",
+      "kana": "ねる",
+      "kanji": "寝<rt>ね</rt>る",
+      "eng": "sleep, go to sleep",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "みる|見る",
+      "kana": "みる",
+      "kanji": "見<rt>み</rt>る",
+      "eng": "see, look at",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "いる|居る",
+      "kana": "いる",
+      "kanji": "居<rt>い</rt>る",
+      "eng": "be present, stay",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "でかける|出かける",
+      "kana": "でかける",
+      "kanji": "出<rt>で</rt>かける",
+      "eng": "depart, go out",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "あける|開ける",
+      "kana": "あける",
+      "kanji": "開<rt>あ</rt>ける",
+      "eng": "open, unlock (doors, windows, etc.)",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "おしえる|教える",
+      "kana": "おしえる",
+      "kanji": "教<rt>おし</rt>える",
+      "eng": "teach, tell",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "かりる|借りる",
+      "kana": "かりる",
+      "kanji": "借<rt>か</rt>りる",
+      "eng": "borrow",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "おりる|降りる",
+      "kana": "おりる",
+      "kanji": "降<rt>お</rt>りる",
+      "eng": "get off, land",
+      "type": "ru",
+      "exception": null
+    },
+    {
+      "id": "する|為る",
+      "kana": "する",
+      "kanji": "為<rt>す</rt>る",
+      "eng": "do, make",
+      "type": "irr",
+      "exception": null
+    },
+    {
+      "id": "べんきょうする|勉強する",
+      "kana": "べんきょうする",
+      "kanji": "勉<rt>べん</rt>強<rt>きょう</rt>する",
+      "eng": "study",
+      "type": "irr",
+      "exception": null
+    },
+    {
+      "id": "くる|来る",
+      "kana": "くる",
+      "kanji": "来<rt>く</rt>る",
+      "eng": "come",
+      "type": "irr",
+      "exception": null
+    }
+  ]
+}
