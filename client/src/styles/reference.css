@@ -1,0 +1,28 @@
+/* Conjugation tables, from the provided verb/adjective-conjugation.html. Dark colors follow the
+   site's theme toggle (body.dark) rather than prefers-color-scheme. */
+
+.reference { padding: 0 16px; }
+.reference h2 { font-size: 1.5rem; margin: 28px 0 12px; }
+
+.conj-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; display: flex; }
+.conj-table {
+  border-collapse: collapse;
+  font-family: system-ui, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+  font-size: 15px;
+  white-space: nowrap;
+  width: auto;
+  margin: 0 auto;
+}
+.conj-table th, .conj-table td {
+  border: 1px solid #d0d4da;
+  padding: 6px 12px;
+  text-align: left;
+}
+.conj-table thead th { background: #f2f4f7; font-weight: 600; text-align: center; vertical-align: middle; }
+.conj-table tbody th { background: #fafbfc; font-weight: 600; position: sticky; left: 0; }
+.conj-table .rule { color: #5b6470; }
+
+body.dark .conj-table th, body.dark .conj-table td { border-color: #3a3f47; }
+body.dark .conj-table thead th { background: #23272e; }
+body.dark .conj-table tbody th { background: #1c1f24; }
+body.dark .conj-table .rule { color: #9aa3ae; }

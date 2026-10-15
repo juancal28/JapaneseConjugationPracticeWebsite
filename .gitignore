@@ -5,3 +5,8 @@ data/jmdict/
 .reference/
 *.log
 .DS_Store
+
+# Editor backup/undo files (Vim undo files can contain .env contents)
+*.un~
+*~
+*.swp

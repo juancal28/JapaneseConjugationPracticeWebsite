@@ -95,6 +95,9 @@ export default function PracticePage() {
       <Link className="manage-decks" to="/decks">
         Manage decks / upload an Anki deck
       </Link>
+      <Link className="manage-decks" to="/reference">
+        Conjugation reference
+      </Link>
     </Settings>
   );
 
