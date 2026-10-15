@@ -14,7 +14,7 @@ export function slugify(name: string): string {
   return slug || "deck";
 }
 
-const ALLOWED_TAG = /&lt;(\/?)(rt|rb|rp)&gt;/g;
+const ALLOWED_TAG = /&lt;(\/?)(ruby|rt|rb|rp)&gt;/g;
 
 /** Escapes HTML, then re-allows only the ruby tags the engine produces. Safe to pass to innerHTML. */
 export function safeRubyHtml(s: string): string {

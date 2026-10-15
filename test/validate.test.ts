@@ -28,6 +28,10 @@ describe("word validation", () => {
 describe("safeRubyHtml", () => {
   it("keeps ruby tags and escapes everything else", () => {
     expect(safeRubyHtml("食<rp>(</rp><rt>た</rt><rp>)</rp>べる")).toBe("食<rp>(</rp><rt>た</rt><rp>)</rp>べる");
+    expect(safeRubyHtml("<ruby>書<rt>か</rt>いた</ruby> or <ruby>書<rt>か</rt>く</ruby>")).toBe(
+      "<ruby>書<rt>か</rt>いた</ruby> or <ruby>書<rt>か</rt>く</ruby>",
+    );
     expect(safeRubyHtml('<img src=x onerror="alert(1)">')).toBe("&lt;img src=x onerror=&quot;alert(1)&quot;&gt;");
+    expect(safeRubyHtml('<ruby onclick="x">')).toBe("&lt;ruby onclick=&quot;x&quot;&gt;");
   });
 });

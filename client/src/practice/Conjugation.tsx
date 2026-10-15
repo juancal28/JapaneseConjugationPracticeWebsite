@@ -33,11 +33,13 @@ interface State {
   randomQuestion: boolean;
 }
 
-const stored = (key: string) => {
+/** A saved toggle, or `fallback` if it was never set. */
+const stored = (key: string, fallback = false) => {
   try {
-    return localStorage.getItem(key) === "true";
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : value === "true";
   } catch {
-    return false;
+    return fallback;
   }
 };
 const store = (key: string, value: boolean) => {
@@ -59,8 +61,11 @@ export default class Conjugation extends React.Component<Props, State> {
   private previousAnswers: string[] = [];
   private kanaAnswer: string[] = [];
   private kanjiAnswer: string[] = [];
-  private kanji = stored("showKanji");
-  private furi = stored("showFuri");
+  /** Ruby markup of the accepted answers, shown in the Last Answer box. */
+  private answerKanji: string[] = [];
+  // Unlike the original, kanji with furigana is the default.
+  private kanji = stored("showKanji", true);
+  private furi = stored("showFuri", true);
   private type = stored("hideType");
   private showEnglish = stored("showEnglish");
   private correct = 0;
@@ -126,6 +131,7 @@ export default class Conjugation extends React.Component<Props, State> {
     this.answer = answer.kana;
     this.kanaAnswer = answer.kana;
     this.kanjiAnswer = answer.kanji;
+    this.answerKanji = answer.kanji;
     if (this.reverse) this.updateReverse();
     this.setState({ form: this.randomizer.getForm() });
   }
@@ -134,6 +140,7 @@ export default class Conjugation extends React.Component<Props, State> {
     const options = this.kanji ? this.kanjiAnswer : this.kanaAnswer;
     const question = options[Math.floor(Math.random() * options.length)];
     this.answer = [this.word!.kana];
+    this.answerKanji = [this.word!.kanji];
     this.setState({ question });
   }
 
@@ -150,7 +157,8 @@ export default class Conjugation extends React.Component<Props, State> {
       status,
       correct: this.correct,
       incorrect: this.incorrect,
-      lastAnswer: this.answer.join(" or "),
+      // Kanji with furigana on top; each answer gets its own <ruby> so the readings line up.
+      lastAnswer: this.answerKanji.map((a) => `<ruby>${a}</ruby>`).join(" or "),
       wait: true,
     });
   };
