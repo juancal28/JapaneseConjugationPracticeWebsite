@@ -1,0 +1,356 @@
+{
+  "name": "Duolingo Japanese · 5 decks",
+  "slug": "duolingo-japanese-5-decks",
+  "builtin": false,
+  "source": {
+    "file": "Duolingo_Japanese_Lesson_Vocab.apkg",
+    "ankiDeck": "Duolingo Japanese",
+    "importedAt": "2026-10-15T04:01:43.896Z"
+  },
+  "words": [
+    {
+      "id": "しーんとする|しーんとする",
+      "kana": "しーんとする",
+      "kanji": "しーんとする",
+      "eng": "to fall silent",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite しーんとします to dictionary form."
+      }
+    },
+    {
+      "id": "さわる|触る",
+      "kana": "さわる",
+      "kanji": "触<rt>さわ</rt>る",
+      "eng": "to touch",
+      "type": "u",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite 触ります to dictionary form."
+      }
+    },
+    {
+      "id": "みえる|見える",
+      "kana": "みえる",
+      "kanji": "見<rt>み</rt>える",
+      "eng": "to be visible; to be able to see",
+      "type": "ru",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from negative 見えない to dictionary form."
+      }
+    },
+    {
+      "id": "めがわるい|目が悪い",
+      "kana": "めがわるい",
+      "kanji": "目<rt>め</rt>が悪<rt>わる</rt>い",
+      "eng": "to have poor eyesight",
+      "type": "i",
+      "exception": null,
+      "review": {
+        "jmdictPos": [
+          "exp",
+          "adj-i"
+        ],
+        "claudeNote": "Expression that conjugates like the い-adjective 悪い."
+      }
+    },
+    {
+      "id": "のぼる|上る",
+      "kana": "のぼる",
+      "kanji": "上<rt>のぼ</rt>る",
+      "eng": "to go up; to climb",
+      "type": "u",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite 上ります to dictionary form."
+      }
+    },
+    {
+      "id": "とくい|得意",
+      "kana": "とくい",
+      "kanji": "得意<rt>とくい</rt>",
+      "eng": "good at; one's specialty",
+      "type": "na",
+      "exception": null,
+      "review": {
+        "jmdictPos": [
+          "n",
+          "adj-na",
+          "adj-no"
+        ]
+      }
+    },
+    {
+      "id": "のりかえる|乗り換える",
+      "kana": "のりかえる",
+      "kanji": "乗<rt>の</rt>り換<rt>か</rt>える",
+      "eng": "to transfer; to change trains",
+      "type": "ru",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite 乗り換えます to dictionary form."
+      }
+    },
+    {
+      "id": "せいしき|正式",
+      "kana": "せいしき",
+      "kanji": "正式<rt>せいしき</rt>",
+      "eng": "formal; official",
+      "type": "na",
+      "exception": null,
+      "review": {
+        "jmdictPos": [
+          "adj-na",
+          "adj-no",
+          "n"
+        ]
+      }
+    },
+    {
+      "id": "へとへと|へとへと",
+      "kana": "へとへと",
+      "kanji": "へとへと",
+      "eng": "exhausted",
+      "type": "na",
+      "exception": null,
+      "review": {
+        "jmdictPos": [
+          "adj-na",
+          "adj-no"
+        ]
+      }
+    },
+    {
+      "id": "とく|解く",
+      "kana": "とく",
+      "kanji": "解<rt>と</rt>く",
+      "eng": "to solve; to untie",
+      "type": "u",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite 解きます to dictionary form."
+      }
+    },
+    {
+      "id": "ふくしゅうする|復習する",
+      "kana": "ふくしゅうする",
+      "kanji": "復習<rt>ふくしゅう</rt>する",
+      "eng": "to review",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite 復習します to dictionary form."
+      }
+    },
+    {
+      "id": "むしあつい|蒸し暑い",
+      "kana": "むしあつい",
+      "kanji": "蒸<rt>む</rt>し暑<rt>あつ</rt>い",
+      "eng": "humid",
+      "type": "i",
+      "exception": null,
+      "review": {
+        "jmdictPos": [
+          "adj-i"
+        ]
+      }
+    },
+    {
+      "id": "とつぜん|突然",
+      "kana": "とつぜん",
+      "kanji": "突然<rt>とつぜん</rt>",
+      "eng": "sudden",
+      "type": "na",
+      "exception": null,
+      "review": {
+        "jmdictPos": [
+          "adj-no",
+          "adj-na",
+          "adv"
+        ],
+        "claudeNote": "Mostly used as an adverb, but JMdict lists adj-na."
+      }
+    },
+    {
+      "id": "われる|割れる",
+      "kana": "われる",
+      "kanji": "割<rt>わ</rt>れる",
+      "eng": "to break; to crack",
+      "type": "ru",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite 割れます to dictionary form."
+      }
+    },
+    {
+      "id": "さいきどうする|再起動する",
+      "kana": "さいきどうする",
+      "kanji": "再起動<rt>さいきどう</rt>する",
+      "eng": "to restart; to reboot",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite 再起動します to dictionary form."
+      }
+    },
+    {
+      "id": "そつぎょうする|卒業する",
+      "kana": "そつぎょうする",
+      "kanji": "卒業<rt>そつぎょう</rt>する",
+      "eng": "to graduate",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 卒業します."
+      }
+    },
+    {
+      "id": "こうかいする|公開する",
+      "kana": "こうかいする",
+      "kanji": "公開<rt>こうかい</rt>する",
+      "eng": "to make public, to release",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 公開します."
+      }
+    },
+    {
+      "id": "けいさんする|計算する",
+      "kana": "けいさんする",
+      "kanji": "計算<rt>けいさん</rt>する",
+      "eng": "to calculate",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 計算します."
+      }
+    },
+    {
+      "id": "じこしょうかいする|自己紹介する",
+      "kana": "じこしょうかいする",
+      "kanji": "自己紹介<rt>じこしょうかい</rt>する",
+      "eng": "to introduce oneself",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 自己紹介します."
+      }
+    },
+    {
+      "id": "おめにかかる|お目にかかる",
+      "kana": "おめにかかる",
+      "kanji": "お目<rt>め</rt>にかかる",
+      "eng": "to meet (humble)",
+      "type": "u",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form; humble set expression conjugating like godan かかる."
+      }
+    },
+    {
+      "id": "こまかい|細かい",
+      "kana": "こまかい",
+      "kanji": "細<rt>こま</rt>かい",
+      "eng": "fine, small",
+      "type": "i",
+      "exception": null,
+      "review": {
+        "jmdictPos": [
+          "adj-i"
+        ]
+      }
+    },
+    {
+      "id": "はいけんする|拝見する",
+      "kana": "はいけんする",
+      "kanji": "拝見<rt>はいけん</rt>する",
+      "eng": "to look at (humble)",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 拝見します."
+      }
+    },
+    {
+      "id": "ぞんじる|存じる",
+      "kana": "ぞんじる",
+      "kanji": "存<rt>ぞん</rt>じる",
+      "eng": "to know, to think (humble)",
+      "type": "ru",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 存じます."
+      }
+    },
+    {
+      "id": "もうしあげる|申し上げる",
+      "kana": "もうしあげる",
+      "kanji": "申<rt>もう</rt>し上<rt>あ</rt>げる",
+      "eng": "to say, to express (humble)",
+      "type": "ru",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 申し上げます."
+      }
+    },
+    {
+      "id": "ととのえる|整える",
+      "kana": "ととのえる",
+      "kanji": "整<rt>ととの</rt>える",
+      "eng": "to arrange, to set in order",
+      "type": "ru",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 整えます."
+      }
+    },
+    {
+      "id": "うかがう|伺う",
+      "kana": "うかがう",
+      "kanji": "伺<rt>うかが</rt>う",
+      "eng": "to visit, to ask (humble)",
+      "type": "u",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 伺います."
+      }
+    },
+    {
+      "id": "はんだんする|判断する",
+      "kana": "はんだんする",
+      "kanji": "判断<rt>はんだん</rt>する",
+      "eng": "to judge, to decide",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 判断します."
+      }
+    },
+    {
+      "id": "じしょくする|辞職する",
+      "kana": "じしょくする",
+      "kanji": "辞職<rt>じしょく</rt>する",
+      "eng": "to resign",
+      "type": "irr",
+      "exception": null,
+      "review": {
+        "claudeNote": "Converted from polite form 辞職します."
+      }
+    },
+    {
+      "id": "おる|居る",
+      "kana": "おる",
+      "kanji": "居<rt>お</rt>る",
+      "eng": "to be (humble)",
+      "type": "u",
+      "exception": null,
+      "review": {
+        "claudeNote": "Ambiguous: meaning mixes humble おる (godan) and 降りる (ichidan, to get off); chose おる from polite form おります.",
+        "changedByUser": true
+      }
+    }
+  ]
+}
